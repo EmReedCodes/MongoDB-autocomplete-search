@@ -23,7 +23,7 @@ $(document).ready(function () {
                     $('#cast').empty()
                     result.cast.forEach(cast =>
                         {
-                            $(cast).append(`<li>${cast}</li>`)
+                            $('#cast').append(`<li>${cast}</li>`)
                         })
                         //drop movie poster in as well
                         $('img').attr('src', result.poster)

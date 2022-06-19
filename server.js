@@ -36,6 +36,9 @@ app.get('/search', async (req, res) => { //function await results
                         }
                     }
                 }
+            },
+            {
+                $limit: 10
             }
         ]).toArray()
         res.send(result)
@@ -61,3 +64,22 @@ app.get("/get/:id", async (req, res) => {
 app.listen(process.env.PORT || PORT, () => {
     console.log('Server is running.')
 })
+
+
+//THIS IS THE INDEX TO APPLY TO MONGODB MOVIES COLLECTION
+// {
+//     "mappings": {
+//         "dynamic": false,
+//         "fields": {
+//             "title": [
+//                 {
+//                     "foldDiacritics": false,
+//                     "maxGrams": 7,
+//                     "minGrams": 3,
+//                     "tokenization": "edgeGram",
+//                     "type": "autocomplete"
+//                 }
+//             ]
+//         }
+//     }
+// }
