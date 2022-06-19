@@ -26,7 +26,7 @@ app.get('/search', async (req, res) => { //function await results
     try{  //agg those results together (agg means bring them together like bundling)
         let result = await collection.aggregate([
             {
-                "$Search" : {
+                "$search" : {
                     "autocomplete" : {
                         "query" : `${req.query.query}`,
                         "path": "title",
@@ -41,6 +41,7 @@ app.get('/search', async (req, res) => { //function await results
         res.send(result)
     }catch(error){
         res.status(500).send({message: error.message})
+        console.log(error)
     }
 })
 
